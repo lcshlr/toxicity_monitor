@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Toxicity monitor</title>
 </head>
 <body>
-  <h1>Toxicity monitor</h1>
-  Sentence: <input type="text" id="input_sentence" placeholder="Enter a sentence..." autofocus="true"/><button id="btn" onclick="get_toxicity()">send</button>
-  <p id="toxicity">Results:</p>
-  <i style="color: red" id="error"></i>
+  <div class="mainForm">
+    <h1>Toxicity monitor</h1>
+    Sentence: <input type="text" id="input_sentence" placeholder="Enter a sentence..." autofocus="true"/><button id="btn" onclick="get_toxicity()">send</button>
+    <p id="toxicity">Results:</p>
+    <i style="color: red" id="error"></i>
+  </div>
 </body>
 </html>
 
