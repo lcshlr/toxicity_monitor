@@ -1,0 +1,30 @@
+version: '3'
+services:
+  public:
+    container_name: toxicity_front
+    build: ./public
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    restart: 'unless-stopped'
+    networks:
+      - web
+    depends_on:
+      - api
+  api:
+    container_name: toxicity_api
+    build: ./api
+    volumes:
+      - toxicity_model:/root
+    ports:
+      - "5000:5000"
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge
+
+volumes:
+  toxicity_model:
