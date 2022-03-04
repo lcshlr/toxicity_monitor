@@ -1,0 +1,6 @@
+locust
+pandas
+sklearn
+detoxify
+requests
+gevent
