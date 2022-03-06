@@ -2,7 +2,7 @@ version: '3'
 services:
   public:
     container_name: toxicity_front
-    build: ./public
+    image: lcs95/toxicity_monitor_frontend
     ports:
       - '80:80'
     volumes:
@@ -14,9 +14,7 @@ services:
       - api
   api:
     container_name: toxicity_api
-    build: ./api
-    volumes:
-      - toxicity_model:/root
+    image: lcs95/toxicity_monitor:latest
     ports:
       - "5000:5000"
     networks:
@@ -25,6 +23,3 @@ services:
 networks:
   web:
     driver: bridge
-
-volumes:
-  toxicity_model:
