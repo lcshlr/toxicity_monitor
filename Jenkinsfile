@@ -37,8 +37,11 @@ pipeline {
                 dir('public') {
                     sh 'cypress run'
                 }
-                sh "git checkout -b release-${VERSION}"
-                sh "git push -u origin release-${VERSION}"
+                withCredentials([gitUsernamePassword(credentialsId: '507ac7f7-f087-4b36-a905-b099930ee564',
+                 gitToolName: 'git-tool')]) {
+                     sh "git checkout -b release-${VERSION}"
+                     sh "git push -u origin release-${VERSION}"
+                 }
             }
         }
     }
