@@ -1,0 +1,22 @@
+groups:
+  - name: HardwareAndSoftwareAlerts
+    rules:
+    - alert: InstanceDown
+      expr: up == 0
+      for: 20s
+    - alert: MemoryLessThan10Percent
+      expr: node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes * 100 < 10
+      for: 30s
+    - alert: HighCPULoad
+      expr: 100 - ((rate(node_cpu_seconds_total{mode="idle"}[2m])) * 100) > 80
+      for: 0m
+    - alert: APIException
+      expr: (rate(toxicity_api_exceptions_total[1m]) / rate(toxicity_api_requests_total[1m])) > 0
+      for: 0m
+      labels:
+        severity: high
+    - alert: OutOfDiskSpace
+      expr: 100 - (node_filesystem_avail_bytes/node_filesystem_size_bytes * 100) < 10
+      for: 30m
+      labels:
+        severity: warning
