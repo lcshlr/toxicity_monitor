@@ -24,9 +24,19 @@ docker-compose up
 
 ## Run tests
 
+### Backend
+
 After starting the API, run :
 
 ```
 pip3 install -r api/tests/requirements.txt
 pytest
+```
+
+### Frontend
+
+After starting the API, run :
+
+```
+npx cypress run
 ```
