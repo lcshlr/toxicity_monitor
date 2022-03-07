@@ -14,7 +14,7 @@ services:
       - api
   api:
     container_name: toxicity_api
-    build: ./api
+    image: alexisnorindrefrei/toxicity_monitor
     ports:
       - "5000:5000"
     networks:
@@ -85,7 +85,7 @@ services:
       # linux
       #- /var/lib/docker/:/var/lib/docker:ro
       # windows wsl
-      - /mnt/d/windows_docker/:/rootfs/var/lib/docker:ro
+      - /mnt/windows_docker/:/rootfs/var/lib/docker:ro
     networks:
       - web
 
