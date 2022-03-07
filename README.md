@@ -40,3 +40,8 @@ After starting the API, run :
 ```
 npx cypress run
 ```
+
+### Dockerhub images
+
+- Frontend : https://hub.docker.com/r/lcs95/toxicity_monitor_frontend
+- Backend : https://hub.docker.com/r/alexisnorindrefrei/toxicity_monitor
