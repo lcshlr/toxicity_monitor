@@ -4,3 +4,4 @@ sklearn
 detoxify
 requests
 gevent
+prometheus-flask-exporter
